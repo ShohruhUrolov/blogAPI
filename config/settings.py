@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-CSRF_TRUSTED_ORIGINS = ['https://blogapi-aq6c.onrender.com', 'https://127.0.0.1:8080']
+CSRF_TRUSTED_ORIGINS = ['https://blogapi-aq6c.onrender.com', 'https://127.0.0.1:8000', 'https://0.0.0.0:8000']
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
