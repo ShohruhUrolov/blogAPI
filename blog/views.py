@@ -17,6 +17,7 @@ from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 from django_filters import rest_framework as filters
 
+
 class CustomUserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
