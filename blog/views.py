@@ -16,7 +16,7 @@ from .permissions import IsAuthorOrReadOnly, IsAdmin
 from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 from django_filters import rest_framework as filters
-
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 class CustomUserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
@@ -28,8 +28,10 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated, IsAuthorOrReadOnly, ]
-    filter_backends = (filters.DjangoFilterBackend, )
+    filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
     filterset_fields = ('title', 'author', 'subtitle')
+    search_fields = ['title', 'author', 'subtitle']
+    ordering_fields = ['title', 'author', 'subtitle']
 
 
 class PostLikeViewSet(viewsets.ModelViewSet):
